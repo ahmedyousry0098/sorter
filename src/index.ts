@@ -1,6 +1,10 @@
-import { Sorter } from "./Sorter";
+import { NumsCollection } from "./NumbersCollection";
+import { CharCollection } from "./CharCollection";
 
-const arranged = new Sorter([2, -5, 40, -10, 100])
-arranged.sort()
+const collection = new NumsCollection([2, 52, -7, 10])
+collection.sort()
+console.log(collection.collection);
 
-console.log(arranged);
+const characters = new CharCollection("SOLID")
+characters.sort()
+console.log(characters.str);

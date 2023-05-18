@@ -1,12 +1,20 @@
-export class Sorter {
-    constructor (public collection: number[]) {}
+export interface Sortable {
+    length: number;
+    compare(index: number): boolean;
+    swap(index: number): void
+}
+
+export abstract class Sorter {
+    abstract length: number;
+    abstract swap(index: number): void
+    abstract compare(index: number): boolean
 
     sort() {
-        const {length} = this.collection
+        const {length} = this
         for (let i=0; i<length; i++) {
             for (let j=0; j<length-i-1; j++) {
-                if (this.collection[j] > this.collection[j+1]){
-                    [this.collection[j], this.collection[j+1]] = [this.collection[j+1], this.collection[j]]
+                if (this.compare(j)){
+                    this.swap(j)
                 }
             }
         }
